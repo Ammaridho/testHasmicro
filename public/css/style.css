@@ -1,0 +1,21 @@
+.formDetailPeserta{
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.isilihatDetailTeam#lihatDetailTeam{
+    border: 1px solid black;
+    height: 750px;
+    padding: 20px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+/* .lihatDetailTeam a:hover{
+    background-color: aqua;
+} */
+
