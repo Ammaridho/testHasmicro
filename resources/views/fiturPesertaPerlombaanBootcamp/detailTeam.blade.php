@@ -6,10 +6,7 @@
 
 <div class="row">
     <div class="col">
-        <h5>Sikap : {{$dataTeam->sikap}}</h5>
-        <h5>Nilai Akhir : {{$dataTeam->nilaiAkhir}}</h5>
-        <h5>Hadir : {{$dataTeam->kehadiran}}</h5>
-        <h5>Status : {{$dataTeam->status}}</h5>
+        <h5>Status : {{ucfirst($dataTeam->status)}}</h5>
     </div>
 </div>
 
@@ -30,7 +27,7 @@
              
                 <tr>
                     <th scope="row">{{$i}}</th>
-                    <td>{{$penilaian[$j]}}</td>
+                    <td>{{substr($penilaian[$j],5)}}</td>
                     <td>{{$dataNilai[$j]}}</td>
                     <td>{{$persentase[$j]}}</td>
                     <td>{{$total[$j]}}</td>
@@ -47,12 +44,20 @@
       
 </div>
 
+<div class="row">
+    <div class="col">
+        <h5>Sikap : {{ucfirst($dataTeam->sikap)}}</h5>
+        <h5>Kehadiran : {{$dataTeam->kehadiran}}</h5>
+        <h5>Nilai Akhir : {{$dataTeam->nilaiAkhir}}</h5>
+    </div>
+</div>
+
 <div class="row mt-4">
     <div class="col">
         <h5>Ketentuan Lulus:</h5>
         <p> - Sikap Tidak C</p>
-        <p> - Kehadiran Lebih dari 10x</p>
-        <p> - Nilai Akhir Lebih dari 80</p>
+        <p> - Kehadiran Minimal 10x</p>
+        <p> - Nilai Minimal 80</p>
     </div>
 </div>
 
