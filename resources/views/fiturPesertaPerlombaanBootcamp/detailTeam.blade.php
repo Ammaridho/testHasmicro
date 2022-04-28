@@ -57,7 +57,7 @@
         <h5>Ketentuan Lulus:</h5>
         <p> - Sikap Tidak C</p>
         <p> - Kehadiran Minimal 10x</p>
-        <p> - Nilai Minimal 80</p>
+        <p> - Nilai Akhir Minimal 80</p>
     </div>
 </div>
 
