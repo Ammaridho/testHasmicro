@@ -14,11 +14,11 @@ class authController extends Controller
     public function login(Request $request)
     {
         $data = user::where('username',$request->username)->first();
+        // nested If
         if($data){
             if(password_verify($request->password,$data->password)){
                 session(['session_login' => true]);
                 $request->session()->put('data',$request->input());
-                // Session::put('user_id',$data['id']);
 
                 return redirect('/')->with(['success' => 'berhasil Masuk!']);
             }

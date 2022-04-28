@@ -16,6 +16,7 @@
   <div class="col-6">
     <div class="isitransaksi" style="max-height: 750px; overflow-y:auto; border: 1px solid rgb(185, 185, 185); overflow-x: hidden;">
       
+      {{-- NESTED Loop --}}
       @foreach ($dataTeam as $key => $item)
         <!-- Card -->
         <a href="#" data-id="{{$item->id}}" class="lihatDetailTeam">
@@ -70,6 +71,7 @@
                                 </thead>
 
                                 <?php $i = 1;?>
+                                {{-- Nested Loop --}}
                                   @foreach ($dataPeserta as $second)
                                   @if ($second->team_id == $item->id)
                                   <tbody>
@@ -344,6 +346,7 @@
 
     let jmlPeserta = $('input[name="jumlahPeserta"]').val();
 
+    // Nested If
     if (jmlPeserta != '') {
       
       if(jmlPeserta > 4){

@@ -71,6 +71,7 @@ class lombaBootcampController extends Controller
 
     public function cekLulus($sikap,$kehadiran,$nilaiAkhir)
     {
+        // Nested If
         if ($sikap != 'c') {
             if ($kehadiran > 9) {
                 if ($nilaiAkhir > 79) {
@@ -94,6 +95,7 @@ class lombaBootcampController extends Controller
 
         $dataNilai = array_values($dataNilai);
         
+        // Hard Code, mempersingkat waktu
         $penilaian =['nilaiFungsionalitas','nilaiKegunaan','nilaiKeandalan','nilaiEfisiensi'];
         $persentase =['40%','30%','20%','10%'];
         $persentasenilai =[0.4,0.3,0.2,0.1];
@@ -109,7 +111,7 @@ class lombaBootcampController extends Controller
 
     public function nilaiAkhir($nilai)
     {
-        // Ketentuan Sendiri
+        // Hard Code, mempersingkat waktu
         $persentasenilai =[0.4,0.3,0.2,0.1];
 
         for ($i=0; $i < count($nilai); $i++) { 
@@ -152,11 +154,11 @@ class lombaBootcampController extends Controller
         $ubahTeam->status =  $this->cekLulus($sikap,$kehadiran,$nilaiAkhir);
         $ubahTeam->save();
 
-        if ($request->jumlahPesertaUbah != '') {
+        if (isset($request->namaPeserta)) {
 
             peserta::where('team_id',$id)->delete();
 
-            for ($i=0; $i < $request->jumlahPesertaUbah; $i++) { 
+            for ($i=0; $i < count($request->namaPeserta); $i++) { 
                 $storePeserta = new peserta;
                 $storePeserta->namaPeserta = $request->namaPeserta[$i];
                 $storePeserta->nim = $request->nim[$i];
@@ -165,9 +167,6 @@ class lombaBootcampController extends Controller
                 $storePeserta->save();
             }
         }
-        
-
-
     }
 
     public function hapusTeam(Request $request)
