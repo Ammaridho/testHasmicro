@@ -11,7 +11,7 @@ class lombaBootcampController extends Controller
 {
     public function lihatDatalombaBootcamp()
     {
-        $dataTeam = team::all();
+        $dataTeam = team::orderBy('updated_at', 'desc')->get();
 
         $dataPeserta = team::join('peserta','team.id','=','peserta.team_id')->get();
 
