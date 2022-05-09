@@ -25,6 +25,16 @@
         <div id="hasilCek"></div>
     </div>
 </div>
+<div class="row mt-5">
+    <div class="col">
+        <p>Mohon maaf sebelumnya bapak/ibu.. <br> 
+        Membandingkan persentase karakter 1 terhadap karakter 2, seharusnya kalau: <br>
+        karakter 1 : ABBCD <br>
+        karakter 2 : Gallant Duck <br>
+        Harusnya 3/5 karena A,C,D <br>
+        Harusnya 60%, apa benar? terimakasih.. 🙏 </p>
+    </div>
+</div>
 
 <script>
     $('#formCek').on('submit',function () {
@@ -33,9 +43,9 @@
         // ambil data di form
         const chars = $("input[name='karakter[]']").map(function(){return $(this).val();}).get();
 
-        // bagi jadikan array
-        const c1 = chars[1].toLowerCase().split("");
-        const c0 = chars[0].toLowerCase().split("").length;
+         // bagi jadikan array hilangkan spasi
+         let c1 = chars[1].toLowerCase().split("").filter((n) => {return n !== ' '});
+        let c0 = chars[0].toLowerCase().split("").filter((n) => {return n !== ' '}).length;
 
         // deklarasi untuk array baru
         let maparray = [];
